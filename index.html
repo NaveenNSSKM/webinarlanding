@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar Landing Page</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lexend Deca', 'Helvetica Neue', Helvetica, sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+     
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2c085b;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-bottom-left-radius: 43px;
+    border-bottom-right-radius: 43px;
+}
+
+
+        
+      
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #ff0070;
+        }
+        
+        .search-icon {
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Banner Styles */
+        .hero-banner {
+            background: linear-gradient(135deg, #2e0a5c 0%, #4a0a8a 100%);
+            color: white;
+            padding: 100px 5% 150px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .hero-subtitle {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ff0070;
+        }
+        
+        .laptop-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .laptop-image {
+            width: 100%;
+            height: auto;
+            
+        }
+        
+        .countdown {
+            margin: 30px 0;
+            font-size: 1.2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ff0070;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 112, 0.3);
+        }
+        
+        /* Wave Separator */
+        .wave-separator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C67.44,118.92,143.94,111.31,213.34,92.83Z' fill='%23ffffff'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #2e0a5c;
+        }
+        
+        .section-content {
+            color: #777;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Bubbles Animation */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.297);
+            animation: float 8s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        .bubble:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+             background: #ff0070;
+        }
+        
+        .bubble:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+             background: #ff0070;
+        }
+        
+        .bubble:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 2s;
+             background: #ff0070;
+        }
+        
+        .bubble:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 3s;
+              background: #ff0070;
+        }
+        
+        .bubble:nth-child(5) {
+            width: 200px;
+            height: 200px;
+            top: 40%;
+            left: 5%;
+            animation-delay: 4s;
+            
+        }
+        
+        .bubble:nth-child(6) {
+            width: 180px;
+            height: 180px;
+            top: 60%;
+            right: 5%;
+            animation-delay: 5s;
+            
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+
+
+        /* steps sections */
+
+          .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: -80px 20px;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            text-align: center;
+        }
+
+        .icon-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .step-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .step-number {
+            font-size: 16px;
+            color: #666;
+        }
+
+        
+
+        @media (max-width: 768px) {
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                margin-bottom: 30px;
+            }
+        }
+
+
+
+      /* sharing section */
+
+ /* Main container */
+    .sharing-container {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      margin-top: 50px;
+    }
+    
+    /* Left section with image */
+    .image-section {
+      flex: 1;
+      position: relative;
+      background-color: #333; /* Fallback color if image fails to load */
+    }
+    
+    .image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+    }
+    
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Right section with content */
+    .content-section {
+      flex: 1;
+      background-color: #4a0082; /* Deep purple */
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    /* Individual content items */
+    .content-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+    
+    .content-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* Icon containers */
+    .icon-container {
+      width: 50px;
+      height: 50px;
+      background-color: #ff1493; /* Pink */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .icon-container img {
+      width: 60%;
+      height: 50%;
+      object-fit: contain;
+    }
+    
+    /* Text content */
+    .content-text {
+      color: white;
+    }
+    
+    .content-text h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    
+    .content-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 992px) {
+      .icon-container {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .content-text h2 {
+        font-size: 22px;
+      }
+      
+      .content-text p {
+        font-size: 15px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .sharing-container {
+        flex-direction: column;
+      }
+      
+      .image-section {
+        height: 300px;
+      }
+      
+      .content-section {
+        padding: 40px 30px;
+      }
+      
+      .content-item {
+        margin-bottom: 30px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .icon-container {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+      }
+      
+      .content-section {
+        padding: 30px 20px;
+      }
+      
+      .content-text h2 {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      
+      .content-text p {
+        font-size: 14px;
+      }
+    }
+
+    /* Event Speakers section */
+
+      .c {
+           
+            margin: 0 auto;
+            padding: 50px 15px;
+        }
+     
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #777;
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background-color: #ff0099;
+            margin: 30px auto;
+        }
+
+        .speakers-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .speaker-card {
+            width: 320px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .speaker-image {
+            position: relative;
+            overflow: hidden;
+            height: 320px;
+        }
+
+        .speaker-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .speaker-card:hover .speaker-image img {
+            transform: scale(1.1);
+        }
+
+        .speaker-info {
+            padding: 20px;
+            position: relative;
+        }
+
+        .speaker-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .speaker-position {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            position: absolute;
+            left: 0;
+            top: -24px;
+            display: flex;
+            background-color: #ff0099;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: rgba(255, 0, 153, 0.8);
+        }
+
+        /* Font Awesome Icons */
+        .fa {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .fa-facebook {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 320 512'%3E%3Cpath d='M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        .fa-twitter {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 512 512'%3E%3Cpath d='M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        .fa-instagram {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 448 512'%3E%3Cpath d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        @media (max-width: 768px) {
+            .speakers-grid {
+                gap: 20px;
+            }
+            
+            .speaker-card {
+                width: 280px;
+            }
+            
+            .speaker-image {
+                height: 280px;
+            }
+        }
+
+        /* upcoming webinar section */
+      .cont {
+            width: 50%;
+         
+            margin: 0 auto;
+            padding: 4px 15px;
+        }
+
+        .seminar-header {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .seminar-header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .seminar-header p {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background-color: #ff1493;
+            margin: 30px auto;
+        }
+
+        .tab-container {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #3a0058;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            background-color: #4e0076;
+        }
+
+        .tab.active {
+            background-color: #ff1493;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .speaker {
+            display: flex;
+            margin-bottom: 30px;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-left: 4px solid #ff1493;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .speaker-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+
+        .speaker-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .speaker-details {
+            flex: 1;
+        }
+
+        .speaker-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .speaker-time {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .speaker-description {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff1493;
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+        }
+
+        /* Tablet Responsive Styles */
+        @media (max-width: 768px) {
+            .cont {
+                width: 95%;
+            }
+            
+            .seminar-header h1 {
+                font-size: 32px;
+            }
+
+            .tab {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .speaker {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .speaker-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 480px) {
+            .cont {
+                width: 100%;
+                padding: 4px 10px;
+            }
+            
+            .seminar-header {
+                padding: 30px 0;
+            }
+            
+            .seminar-header h1 {
+                font-size: 28px;
+            }
+
+            .tab-container {
+              flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .tab {
+                margin-bottom: 5px;
+            }
+            
+            .speaker {
+               flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .speaker-img {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 10px;
+            }
+            
+            .speaker-name {
+                font-size: 16px;
+            }
+        }
+
+
+        /* Registration Form */
+         /* Registration Form Styles */
+        .registration-section {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin-bottom: 40px;
+            border-top-right-radius: 58px;
+            border-bottom-right-radius: 58px;
+            border-top-left-radius: 58px;
+            border-bottom-left-radius: 58px;
+        }
+
+        .registration-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .registration-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+
+        .form-group {
+            flex: 1 0 calc(50% - 20px);
+            margin: 0 10px 20px;
+        }
+
+        .form-group.full-width {
+            flex: 1 0 calc(100% - 20px);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #f0f0f0;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #ff1493;
+            box-shadow: 0 0 0 2px rgba(255, 20, 147, 0.3);
+        }
+
+        .form-control::placeholder {
+            color: rgb(255, 255, 255);
+           
+        }
+
+        .checkbox-group {
+            margin-bottom: 10px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+
+        .checkbox-input {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .checkbox-text {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .checkbox-text a {
+            color: #ff1493;
+            text-decoration: none;
+        }
+
+        .checkbox-text a:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background-color: #ff1493;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #ff0086;
+        }
+
+
+
+
+/* footer */
+
+
+.footer {
+        background-color: #2c085b;
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+        border-radius: 100px 100px 0 0;
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .footer-text {
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .social-icon {
+        background-color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+    }
+    
+    .social-icon:hover {
+        transform: scale(1.1);
+    }
+    
+    .copyright {
+        font-size: 0.9rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .footer {
+            padding: 1.5rem 1rem;
+        }
+        
+        .footer-text {
+            font-size: 1rem;
+        }
+        
+        .social-icon {
+            width: 35px;
+            height: 35px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .social-links {
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .social-icon img, .social-icon svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+              <a href="#" class="logo">
+        <img style="width: 70%;" src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://intelous.ai/wp-content/themes/intelous/images/logo.png" />
+      </a>
+        </div>
+        
+        <nav>
+           
+        </nav>
+        
+        <div class="search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+        </div>
+    </header>
+    
+    <!-- Hero Banner with Bubbles -->
+    <section class="hero-banner">
+        <!-- Animated Bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        
+        <div class="banner-content">
+            <h1 class="hero-title">Digital Thinkers</h1>
+            <h2 class="hero-subtitle">Meet Up</h2>
+            
+            <div class="laptop-container">
+                <img src="webinar-banner.png" alt="Webinar session showing people in video conference" class="laptop-image">
+            </div>
+            
+            <p class="countdown">The countdown is finished!</p>
+            
+            <button class="cta-button">Register Now</button>
+        </div>
+        
+        <!-- Wave Separator -->
+        <div class="wave-separator"></div>
+    </section>
+    
+    <!-- How To Join Section -->
+    <section class="section">
+        <h2 class="section-title">How To Join With Us</h2>
+        <p class="section-content">
+            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has in the industry.
+        </p>
+    </section>
+
+<!------------------------Steping---------------------------->
+
+    <div class="container">
+        <div class="steps-container">
+            <div class="step">
+                <div class="icon-circle">
+                    <img src="step1.png" alt="user-icon" width="30px">
+                    
+                </div>
+                <h2 class="step-title">Create Account</h2>
+                <p class="step-number">1st Step</p>
+            </div>
+            
+            <div class="step">
+                <div class="icon-circle">
+                    <img src="step2.png" alt="user-icon" width="30px">
+                </div>
+                <h2 class="step-title">Purchase Ticket</h2>
+                <p class="step-number">2nd Step</p>
+            </div>
+            
+            <div class="step">
+                <div class="icon-circle">
+                    <img src="step3.png" alt="user-icon" width="30px">
+                </div>
+                <h2 class="step-title">Join Webinar</h2>
+                <p class="step-number">3rd Step</p>
+            </div>
+        </div>
+    </div>
+
+<!-----------------------Sharing--------------------------------------------->
+
+
+ <div class="sharing-container">
+    <!-- Left section with image -->
+    <div class="image-section">
+      <img src="sharing.png" alt="Professionals sharing ideas">
+      <div class="image-overlay"></div>
+    </div>
+    
+    <!-- Right section with content -->
+    <div class="content-section">
+      <!-- Item 1: Idea Share -->
+      <div class="content-item">
+        <div class="icon-container">
+          <img src="idea.png" alt="Idea icon">
+        </div>
+        <div class="content-text">
+          <h2>Idea Share</h2>
+          <p>Sondimentum velit purus, nec mi ante tumst eu eu, nec et quis sit proin lectus sed. Scerisque donec aliquam sollitudin tellus praesent sodales imperdiet</p>
+        </div>
+      </div>
+      
+      <!-- Item 2: Best Speakers -->
+      <div class="content-item">
+        <div class="icon-container">
+          <img src="ideaspeaker.png" alt="Speaker icon">
+        </div>
+        <div class="content-text">
+          <h2>Best Speakers</h2>
+          <p>Sondimentum velit purus, nec mi ante tumst eu eu, nec et quis sit proin lectus sed. Scerisque donec aliquam sollitudin tellus praesent sodales imperdiet</p>
+        </div>
+      </div>
+      
+      <!-- Item 3: Daily Update -->
+      <div class="content-item">
+        <div class="icon-container">
+          <img src="ideadailyupdate.png" alt="Calendar icon">
+        </div>
+        <div class="content-text">
+          <h2>Daily Update</h2>
+          <p>Sondimentum velit purus, nec mi ante tumst eu eu, nec et quis sit proin lectus sed. Scerisque donec aliquam sollitudin tellus praesent sodales imperdiet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---------------------------------Event Speakers---------------------------------------------->
+
+
+    <div class="c">
+        <div class="section-title">
+            <h2>Our Event Speakers</h2>
+            <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has in the industry</p>
+        </div>
+        <div class="divider"></div>
+        
+        <div class="speakers-grid">
+            <!-- Speaker 1 -->
+            <div class="speaker-card">
+                <div class="speaker-image">
+                    <img src="speaker1.jpg" alt="Max Iunisa">
+                </div>
+                <div class="speaker-info">
+                    <div class="social-icons">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                    <h3 class="speaker-name">Max Iunisa</h3>
+                    <p class="speaker-position">Intelous Inc.</p>
+                    <p class="speaker-position">CEO</p>
+                </div>
+            </div>
+            
+            <!-- Speaker 2 -->
+            <div class="speaker-card">
+                <div class="speaker-image">
+                    <img src="speaker2.jpg" alt="Eillss Lusa">
+                </div>
+                <div class="speaker-info">
+                    <div class="social-icons">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                    <h3 class="speaker-name">Eillss Lusa</h3>
+                    <p class="speaker-position">Intelous Inc.</p>
+                    <p class="speaker-position">CEO</p>
+                </div>
+            </div>
+            
+            <!-- Speaker 3 -->
+            <div class="speaker-card">
+                <div class="speaker-image">
+                    <img src="speaker3.jpg" alt="Bublis nulla">
+                </div>
+                <div class="speaker-info">
+                    <div class="social-icons">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                    <h3 class="speaker-name">Bublis nulla</h3>
+                    <p class="speaker-position">Intelous Inc.</p>
+                    <p class="speaker-position">CEO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!----------------------------upcoming webinar--------------------------------------->
+
+    
+    <div class="cont">
+        <div class="seminar-header">
+            
+            <h1>Upcoming Webinar</h1>
+            <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has n the industry</p>
+            <div class="divider"></div>
+        </div>
+       
+
+        <div class="tab-container">
+            <div class="tab active" onclick="openTab(event, 'day1')">1st Day</div>
+            <div class="tab" onclick="openTab(event, 'day2')">2nd Day</div>
+            <div class="tab" onclick="openTab(event, 'day3')">3rd Day</div>
+        </div>
+
+        <div id="day1" class="content active">
+            <div class="speaker">
+                <div class="speaker-img">
+                    <img src="upcoming-small1.jpg" alt="Speaker">
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">Website Designer</div>
+                    <div class="speaker-time">martin hook • at 08:00am - 09:00 am</div>
+                    <div class="speaker-description">
+                        Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egespaesque pede, tellus tpmorbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, ve
+                    </div>
+                </div>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-img">
+                    <img src="upcoming-small2.jpg" alt="Speaker">
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">UI/UX Specialist</div>
+                    <div class="speaker-time">sarah johnson • at 09:30am - 10:30 am</div>
+                    <div class="speaker-description">
+                        Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egespaesque pede, tellus tpmorbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, ve
+                    </div>
+                </div>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-img">
+                    <img src="upcoming-small3.jpg" alt="Speaker">
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">Frontend Developer</div>
+                    <div class="speaker-time">david chen • at 11:00am - 12:00 pm</div>
+                    <div class="speaker-description">
+                        Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egespaesque pede, tellus tpmorbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, ve
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day2" class="content">
+            <div class="speaker">
+                <div class="speaker-img">
+                    <img src="upcoming-small3.jpg" alt="Speaker">
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">Backend Developer</div>
+                    <div class="speaker-time">alex thompson • at 08:00am - 09:00 am</div>
+                    <div class="speaker-description">
+                        Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egespaesque pede, tellus tpmorbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, ve
+                    </div>
+                </div>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-img">
+                    <img src="upcoming-small2.jpg" alt="Speaker">
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">DevOps Engineer</div>
+                    <div class="speaker-time">emma roberts • at 09:30am - 10:30 am</div>
+                    <div class="speaker-description">
+                        Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egespaesque pede, tellus tpmorbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, ve
+                    </div>
+                </div>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-img">
+                    <img src="upcoming-small1.jpg" alt="Speaker">
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">Database Administrator</div>
+                    <div class="speaker-time">michael garcia • at 11:00am - 12:00 pm</div>
+                    <div class="speaker-description">
+                        Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egespaesque pede, tellus tpmorbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, ve
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day3" class="content">
+            <div class="speaker">
+                <div class="speaker-img">
+                    <img src="upcoming-small2.jpg" alt="Speaker">
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">Marketing Specialist</div>
+                    <div class="speaker-time">jessica parker • at 08:00am - 09:00 am</div>
+                    <div class="speaker-description">
+                        Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egespaesque pede, tellus tpmorbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, ve
+                    </div>
+                </div>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-img">
+                    <img src="upcoming-small1.jpg" alt="Speaker">
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">Product Manager</div>
+                    <div class="speaker-time">lisa wong • at 09:30am - 10:30 am</div>
+                    <div class="speaker-description">
+                        Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egespaesque pede, tellus tpmorbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, ve
+                    </div>
+                </div>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-img">
+                    <img src="upcoming-small3.jpg" alt="Speaker">
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">Business Strategist</div>
+                    <div class="speaker-time">james wilson • at 11:00am - 12:00 pm</div>
+                    <div class="speaker-description">
+                        Hendrerit lectus egestas. Pede cum tortor consectetuer eu, orci praesent vestibulum aliquam wisi tortor, arcu egespaesque pede, tellus tpmorbi nisl. Velit lectus donec orci id auctor. Amet fermentum et dui, ve
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!------------------------------------Form Registration--------------------------------------------->
+     <div class="registration-section">
+            <h2>Register for the Webinar</h2>
+            <form class="registration-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Full Name *</label>
+                        <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address *</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="company" class="form-label">Company/Organization</label>
+                        <input type="text" id="company" class="form-control" placeholder="Enter your company name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox-input" required>
+                                <span class="checkbox-text">I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a> *</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="checkbox-text">Send me newsletters and updates about future seminars</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <button type="submit" class="submit-btn">Register Now</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+<!--------------------------------footer-------------------------------------->
+
+
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-text">Brought to you by Intelous</div>
+        
+        <div class="social-links">
+            <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0c2842" width="20px" height="20px">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path>
+                </svg>
+            </a>
+            <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0c2842" width="20px" height="20px">
+                    <path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"></path>
+                </svg>
+            </a>
+            <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0c2842" width="20px" height="20px">
+                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path>
+                </svg>
+            </a>
+            <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0c2842" width="20px" height="20px">
+                    <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"></path>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="copyright">© 2025 Intelous. All rights reserved.</div>
+    </div>
+</footer>
+
+
+ <a href="#" class="back-to-top">↑</a>
+
+
+   <script>
+        // Initialize first tab as active
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show the first content tab
+            document.getElementById('day1').classList.add('active');
+            document.querySelector('.tab').classList.add('active');
+        });
+
+        function openTab(evt, dayName) {
+            // Get all elements with class="content" and hide them
+            const contents = document.getElementsByClassName("content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+            
+            // Get all elements with class="tab" and remove the class "active"
+            const tabs = document.getElementsByClassName("tab");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(dayName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // Show/hide back-to-top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scroll to top when back-to-top is clicked
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+</html>
